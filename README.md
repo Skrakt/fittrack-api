@@ -1,8 +1,6 @@
 # FitTrack-API
 
-<!-- Badge CI a coller a l'exo 10 :
-![CI](https://github.com/<votre-org>/fittrack-api/actions/workflows/ci-express.yml/badge.svg)
--->
+![CI](https://github.com/Skrakt/FitTrack-API/actions/workflows/ci-express.yml/badge.svg)
 
 API Express minimale de suivi des seances d'entrainement, support des exos 10 (CI Express).
 
