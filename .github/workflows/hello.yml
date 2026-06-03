@@ -1,0 +1,9 @@
+# Workflow minimal (Chap. 07) — fichier .github/workflows/hello.yml
+name: hello
+on: [push, workflow_dispatch]   # workflow_dispatch = bouton "Run workflow" pour la démo live
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saluer
+        run: echo "Hello CI/CD"
