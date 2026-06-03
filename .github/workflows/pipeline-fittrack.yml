@@ -43,4 +43,4 @@ jobs:
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     steps:
       - name: Deploy
-        run: echo "deploy OK — version ${{ needs.build.outputs.version }} déployée en staging"
+        run: echo "deploy OK — version ${{ needs.build.outputs.version }} deployed"

@@ -1,0 +1,42 @@
+# Workflow réutilisable — CI Express FitTrack-API
+# Inputs :
+#   node-version (string, required) : version Node.js à utiliser
+#   run-tests    (boolean, optional, default: true) : exécuter npm test ou non
+# Secrets : transmis via inherit depuis le caller
+# Usage :
+#   uses: ./.github/workflows/ci-shared.yml
+#   with:
+#     node-version: '20'
+#     run-tests: true
+#   secrets: inherit
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+      run-tests:
+        required: false
+        type: boolean
+        default: true
+    secrets:
+      inherit: # les secrets du caller sont transmis automatiquement
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Tests
+        if: ${{ inputs.run-tests }}
+        run: npm test
